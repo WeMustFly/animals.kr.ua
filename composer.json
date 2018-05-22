@@ -1,0 +1,8 @@
+{
+    "name": "wemustfly/animals.kr.ua",
+    "type": "project",
+    "require": {
+        "php": ">=7.2",
+        "longman/telegram-bot": "*"
+    }
+}
