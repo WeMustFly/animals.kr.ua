@@ -1,3 +1,6 @@
 /composer.lock
 /vendor
 /config.php
+frontend/node_modules
+frontend/package-lock.json
+frontend/dist
