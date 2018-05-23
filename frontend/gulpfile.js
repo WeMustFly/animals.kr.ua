@@ -1,20 +1,22 @@
 'use strict';
-var gulp = require('gulp'),
-	$ = require('gulp-load-plugins')({lazy: true});
+const gulp = require('gulp'),
+	$ = require('gulp-load-plugins')({
+		lazy: true
+	});
 
-var path = {
+const path = {
 	dist: './dist/',
 	src: './src/',
 }
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
 	return gulp.src(path.dist, {
 			read: false
 		})
 		.pipe($.clean());
 });
 
-gulp.task('connect', function () {
+gulp.task('connect', () => {
 	$.connect.server({
 		port: 5000,
 		root: 'dist',
@@ -22,9 +24,9 @@ gulp.task('connect', function () {
 	});
 });
 
-
-gulp.task('htmlmin', function () {
+gulp.task('html', () => {
 	return gulp.src(path.src + 'index.html')
+		.pipe($.w3cjs())
 		.pipe($.htmlmin({
 			collapseWhitespace: true
 		}))
@@ -32,13 +34,13 @@ gulp.task('htmlmin', function () {
 		.pipe($.connect.reload());
 });
 
-gulp.task('imgs', function () {
+gulp.task('imgs', () => {
 	return gulp.src(path.src + 'img/**/*.*')
 		.pipe(gulp.dest(path.dist))
 		.pipe($.connect.reload());
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
 	return gulp.src(path.src + 'scss/**/*.scss')
 		.pipe($.sass({
 			outputStyle: 'compressed'
@@ -51,8 +53,11 @@ gulp.task('sass', function () {
 		.pipe($.connect.reload());
 })
 
-gulp.task('js', function () {
+gulp.task('js', () => {
 	return gulp.src(path.src + 'js/**/*.js')
+		.pipe($.babel({
+			presets: ['env']
+		}))
 		.pipe($.uglify().on("error", $.notify.onError({
 			message: "<%= error.message %>",
 			title: "JS Error: "
@@ -61,21 +66,15 @@ gulp.task('js', function () {
 		.pipe($.connect.reload());
 });
 
-gulp.task('valid', function () {
-	gulp.src(path.dist + 'index.html')
-		.pipe($.w3cjs())
-		.pipe($.w3cjs.reporter());
-});
-
-gulp.task('watch', function () {
+gulp.task('watch', () => {
 	gulp.watch(path.src + 'scss/**/*.scss', ['sass']);
 	gulp.watch(path.src + 'js/**/*.js', ['js']);
-	gulp.watch(path.src + 'index.html', ['htmlmin']);
+	gulp.watch(path.src + 'index.html', ['html']);
 	gulp.watch(path.src + 'img/**/*.*', ['imgs']);
 });
 
-gulp.task('default', ['clean', 'connect', 'watch'], function () {
-	gulp.start('htmlmin');
+gulp.task('default', ['clean', 'connect', 'watch'], () => {
+	gulp.start('html');
 	gulp.start('sass');
 	gulp.start('imgs');
 	gulp.start('js');
