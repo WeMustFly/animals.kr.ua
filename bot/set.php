@@ -6,7 +6,7 @@ require __DIR__ . '/config.php';
 
 $bot_api_key  = $config['bot_api_key'];
 $bot_username = $config['bot_username'];
-$hook_url = $config['hook_url'] ?? 'https://animals.kr.ua/hook.php';
+$hook_url = $config['hook_url'] ?? 'https://animals.kr.ua/bot/hook.php';
 
 try {
     // Create Telegram API object
