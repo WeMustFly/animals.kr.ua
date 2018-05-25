@@ -1,12 +1,12 @@
 <?php
 
 // Load composer
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/config.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../config.php';
 
 $bot_api_key  = $config['bot_api_key'];
 $bot_username = $config['bot_username'];
-$hook_url = $config['hook_url'] ?? 'https://animals.kr.ua/bot/hook.php';
+$hook_url = $config['hook_url'] ?? 'https://animals.kr.ua/bot.php?action=hook';
 
 try {
     // Create Telegram API object
