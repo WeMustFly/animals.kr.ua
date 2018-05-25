@@ -39,8 +39,8 @@ try {
     $telegram->enableMySql($mysql_credentials);
 
     // Set custom Upload and Download paths
-    $telegram->setDownloadPath(__DIR__ . '/../www/images');
-    $telegram->setUploadPath(__DIR__ . '/../www/images');
+    $telegram->setDownloadPath($config['images_dir']);
+    $telegram->setUploadPath($config['images_dir']);
 
     // Handle telegram webhook request
     $telegram->handle();

@@ -2,10 +2,11 @@
 
 require __DIR__ . '/../config.php';
 
+$animals = [];
 try {
     $dbh = new PDO('mysql:host=' . $config['db_host'] . ';dbname=' . $config['db_name'], $config['db_user'], $config['db_password']);
     foreach($dbh->query('SELECT * from animals') as $row) {
-        print_r($row);
+        $animals[] = $row;
     }
     $dbh = null;
 } catch (PDOException $e) {
@@ -13,5 +14,4 @@ try {
     die();
 }
 
-$html = file_get_contents(__DIR__ . '/../frontend/index.html');
-echo $html;
+include(__DIR__ . '/../frontend/index.html');

@@ -9,5 +9,13 @@
 
     <h1>Animals.kr.ua</h1>
 
+    <?php foreach ($animals as $animal): ?>
+        <div>
+            <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
+            <span><?= $animal['name']; ?></span>
+            <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
+        </div>
+    <?php endforeach; ?>
+
 </body>
 </html>
