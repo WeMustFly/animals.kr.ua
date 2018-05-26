@@ -9,13 +9,18 @@
 
     <h1>Animals.kr.ua</h1>
 
-    <?php foreach ($animals as $animal): ?>
-        <div>
-            <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
-            <span><?= $animal['name']; ?></span>
-            <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
-        </div>
-    <?php endforeach; ?>
-
+    <?php if (empty($id)): ?>
+        <?php foreach ($animals as $animal): ?>
+            <div>
+                <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
+                <a href='/<?= $animal['id']; ?>'><?= $animal['name']; ?></a>
+                <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <h2><?= $animal['name']; ?></h2>
+        <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
+        <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
+    <?php endif; ?>
 </body>
 </html>

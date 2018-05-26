@@ -1,17 +1,12 @@
 <?php
-/**
- * This file is part of the TelegramBot package.
- *
- * (c) Avtandil Kikabidze aka LONGMAN <akalongman@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+
 namespace Longman\TelegramBot\Commands\SystemCommands;
+
 use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Conversation;
 use Longman\TelegramBot\Request;
 use Longman\TelegramBot\DB;
+
 /**
  * Generic message command
  *
@@ -53,22 +48,19 @@ class GenericmessageCommand extends SystemCommand
 
     private function addAnimal($name, $author, $picture)
     {
-        if ($name === '') {
-            $text = 'Error: name is empty.';
-        } else {
-            try {
-                $sql = "INSERT INTO animals "
-                    . "(name, author, picture, status) "
-                    . "VALUES ('{$name}', '{$author}', '{$picture}', 0)";
+        try {
+            $sql = "INSERT INTO animals "
+                . "(name, author, picture, status) "
+                . "VALUES ('{$name}', '{$author}', '{$picture}', 0)";
 
-                $dbh = DB::getPdo();
-                $dbh->query($sql);
-                $animalId = $dbh->lastInsertId();
+            $dbh = DB::getPdo();
+            $dbh->query($sql);
+            $animalId = $dbh->lastInsertId();
 
-                $text = "Animal #{$animalId} has been added.";
-            } catch (PDOException $e) {
-                $text = "Error: " . $e->getMessage();
-            }
+            $text = "Животное №{$animalId} успешно добавлено на сайт!"
+                . "\n" . "https://animals.kr.ua/{$animalId}";
+        } catch (PDOException $e) {
+            $text = "Внутренняя ошибка: " . $e->getMessage() . ".";
         }
 
         return $text;
@@ -88,24 +80,28 @@ class GenericmessageCommand extends SystemCommand
 
         if ($type === 'photo') {
             $photo = $message->getPhoto();
-            $caption = $message->getCaption();
-            $originalPhoto = $photo[2];
-            $file_id = $originalPhoto->getFileId();
+            $caption = trim($message->getCaption());
 
-            $data = [
-                'chat_id' => $chat->getId(),
-            ];
+            if (!empty($caption)) {
+                $originalPhoto = $photo[2];
+                $file_id = $originalPhoto->getFileId();
 
-            $file = Request::getFile(['file_id' => $file_id]);
-            if ($file->isOk() && Request::downloadFile($file->getResult())) {
-                $author = $chat->getUsername(); 
-                $picture = $file->getResult()->getFilePath();
-                $data['text'] = $this->addAnimal($caption, $author, $picture);
+                $file = Request::getFile(['file_id' => $file_id]);
+                if ($file->isOk() && Request::downloadFile($file->getResult())) {
+                    $author = $chat->getUsername(); 
+                    $picture = $file->getResult()->getFilePath();
+                    $text = $this->addAnimal($caption, $author, $picture);
+                } else {
+                    $text = 'Ошика во время загрузки.';
+                }
             } else {
-                $data['text'] = 'Failed to download.';
+                $text = "Ошибка: Вы не указали подпись для фото животного :-(";
             }
 
-            return Request::sendMessage($data);        
+            return Request::sendMessage([
+                'chat_id' => $chat->getId(),
+                'text' => $text
+            ]);
         } else {
             //If a conversation is busy, execute the conversation command after handling the message
             $conversation = new Conversation(
