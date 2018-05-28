@@ -1,0 +1,6 @@
+/composer.lock
+/vendor
+/config.php
+/laradock*
+frontend/node_modules
+frontend/package-lock.json
