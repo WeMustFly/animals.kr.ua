@@ -8,7 +8,5 @@
 		var text = el.innerText.substring(0, 40) + '...';
 
 		el.innerText = text;
-
-		console.log(text);
 	});
 })();
