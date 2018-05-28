@@ -8,5 +8,11 @@
 		var text = el.innerText.substring(0, 40) + '...';
 
 		el.innerText = text;
+		
 	});
+
+	var menu = document.getElementById('mobileMenu');
+	menu.onclick = (e) => {
+		menu.classList.toggle('active');
+	}
 })();

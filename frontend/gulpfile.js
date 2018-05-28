@@ -36,7 +36,7 @@ gulp.task('html', () => {
 
 gulp.task('imgs', () => {
 	return gulp.src(path.src + 'img/**/*.*')
-		.pipe(gulp.dest(path.dist))
+		.pipe(gulp.dest(path.dist + 'img'))
 		.pipe($.connect.reload());
 });
 

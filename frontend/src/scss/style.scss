@@ -1,20 +1,30 @@
-html, body{
+$mobile-top: 84px;
+html,
+body {
 	width: 100%;
 	height: 100%;
 }
 
-body{
+body {
 	font-size: 100%;
 	background: #a0a0a0;
 	margin: 0;
-
 	section,
 	header,
-	footer{
-		padding: 40px 0;
+	footer {
+		padding: 20px 0;
+		@media screen and (max-width: 479px) {
+			padding: 10px 0;
+		}
 	}
-
-	button{
+	header,
+	footer {
+		background: grey;
+		margin-left: -15px;
+		margin-right: -15px;
+		padding: 15px;
+	}
+	button {
 		background: black;
 		border: none;
 		border-radius: 10px;
@@ -26,79 +36,145 @@ body{
 		height: 40px;
 		cursor: pointer;
 		transition: background .3s ease;
-
-		&:hover{
+		&:hover {
 			background: grey;
 		}
 	}
-
-	.container{
+	.container {
 		width: 100%;
 		max-width: 1176px;
 		margin: 0 auto;
 		background: white;
-		padding: 0 15px;
-
-		.section_heading{
+		padding: 0 15px; // @media screen and (max-width: 479px) {
+		// 	padding: 0 5px;
+		// }
+		.section_heading {
 			text-align: center;
 			font-size: 2em;
+			@media screen and (max-width: 479px) {
+				margin: 0;
+			}
 		}
-
-		.header{
+		.header {
 			display: flex;
 			justify-content: space-between;
-
-			.left-side{
+			align-items: center;
+			.left-side {
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
 			}
-
-			&_navigation{
+			.mobile-menu {
+				@media screen and (min-width: 480px) {
+					display: none;
+				}
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 50px;
+				height: 50px;
+				background: black;
+				position: absolute;
+				top: $mobile-top;
+				z-index: 5;
+				&.active {
+					span {
+						margin: 0;
+						position: relative;
+						&:first-child {
+							top: 2px;
+							transform: rotate(45deg);
+						}
+						&:nth-child(2) {
+							top: -1px;
+							transform: rotate(-45deg);
+						}
+						&:last-child {
+							display: none;
+						}
+					}
+					&+nav {
+						display: block;
+					}
+				}
+				span {
+					display: block;
+					width: 30px;
+					height: 3px;
+					background: white;
+					margin-bottom: 5px;
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+			&_navigation {
 				margin-right: 20px;
-
-				ul{
+				@media screen and (max-width: 479px) {
+					display: none;
+					position: absolute;
+					width: 100%;
+					top: $mobile-top;
+					background: rgba(0, 0, 0, .8);
+				}
+				ul {
 					display: flex;
 					justify-content: space-between;
+					margin: 5px 0;
+					@media screen and (max-width: 479px) {
+						align-items: flex-start;
+						flex-direction: column;
+						padding: 0 0 0 50px;
+					}
 				}
-
-				&__item{
+				&__item {
 					list-style: none;
 					margin-right: 10px;
+					@media screen and (max-width: 479px) {
+						margin-bottom: 5px;
+						text-indent: 10px;
+					}
 				}
-
-				&__link{
+				&__link {
 					color: black;
 					text-decoration: none;
 					text-transform: uppercase;
+					@media screen and (max-width: 479px) {
+						color: white;
+					}
 				}
 			}
 		}
-
-		.main-slider{
+		main {
+			@media screen and (max-width: 479px) {
+				padding-top: 40px;
+			}
+		}
+		.main-slider {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
-			img{
+			img {
 				width: 100%;
 				height: auto;
 			}
-
-			h1{
+			h1 {
 				margin: 0;
 				position: absolute;
 				font-size: 3em;
 			}
 		}
-
-		.animals-section{
-
-			.cards{
+		.animals-section {
+			.cards {
 				display: flex;
 				justify-content: space-around;
+				@media screen and (max-width: 479px) {
+					flex-direction: column;
+					align-items: center;
+				}
 			}
-
-			&__card{
+			&__card {
 				padding: 15px;
 				border: 1px solid black;
 				display: inline-block;
@@ -107,8 +183,11 @@ body{
 				width: 30%;
 				max-width: 300px;
 				max-height: 300px;
-
-				figure{
+				@media screen and (max-width: 479px) {
+					width: 100%;
+					margin-bottom: 10px;
+				}
+				figure {
 					padding: 0;
 					margin: 0;
 					width: 100%;
@@ -119,52 +198,55 @@ body{
 					flex-direction: column;
 					min-width: 250px;
 					min-height: 250px;
-
-					img{
+					img {
 						max-width: 250px;
 						max-height: 250px;
 					}
 				}
-
-				.caption{
+				.caption {
 					position: relative;
 					bottom: 0;
-
-					p{
+					p {
 						margin: 10px 0 0;
 					}
 				}
 			}
 		}
-
-		.instructions{
+		.instructions {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
-
-		.footer{
+		.footer {
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 
-			.right-side{
+			.left-side {
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
 			}
-
-			&_social-navigation{
-
-				ul{
+			.right-side {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				button {
+					@media screen and (max-width: 479px) {
+						display: none;
+					}
+				}
+			}
+			&_social-navigation {
+				ul {
 					display: flex;
 					justify-content: space-between;
 				}
-
-				li{
+				li {
 					list-style: none;
 					margin-right: 10px;
-
-					a{
+					a {
 						color: black;
 						text-decoration: none;
 						text-transform: uppercase;
@@ -174,3 +256,8 @@ body{
 		}
 	}
 }
+
+// .header,
+// .footer{
+// 	display: none!important;	
+// }
