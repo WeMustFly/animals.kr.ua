@@ -6,6 +6,7 @@ html, body{
 body{
 	font-size: 100%;
 	background: #a0a0a0;
+	margin: 0;
 
 	section,
 	header,
@@ -24,6 +25,11 @@ body{
 		width: 100px;
 		height: 40px;
 		cursor: pointer;
+		transition: background .3s ease;
+
+		&:hover{
+			background: grey;
+		}
 	}
 
 	.container{
@@ -42,7 +48,7 @@ body{
 			display: flex;
 			justify-content: space-between;
 
-			.right-side{
+			.left-side{
 				display: flex;
 				justify-content: space-between;
 			}
@@ -98,20 +104,35 @@ body{
 				display: inline-block;
 				overflow: hidden;
 				position: relative;
+				width: 30%;
+				max-width: 300px;
+				max-height: 300px;
 
 				figure{
 					padding: 0;
 					margin: 0;
 					width: 100%;
 					position: relative;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					min-width: 250px;
+					min-height: 250px;
 
 					img{
-						max-width: 350px;
+						max-width: 250px;
+						max-height: 250px;
 					}
 				}
 
-				.sender_login{
-					
+				.caption{
+					position: relative;
+					bottom: 0;
+
+					p{
+						margin: 10px 0 0;
+					}
 				}
 			}
 		}
