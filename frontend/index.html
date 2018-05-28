@@ -2,25 +2,50 @@
 <html>
 
 <head>
-    <title>Animals.kr.ua</title>
+	<title>Animals.kr.ua</title>
 </head>
 
 <body>
 
-    <h1>Animals.kr.ua</h1>
+	<h1>Animals.kr.ua</h1>
 
-    <?php if (empty($id)): ?>
-        <?php foreach ($animals as $animal): ?>
-            <div>
-                <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
-                <a href='/<?= $animal['id']; ?>'><?= $animal['name']; ?></a>
-                <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <h2><?= $animal['name']; ?></h2>
-        <img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
-        <a href='https://t.me/<?= $animal['author']; ?>'><?= $animal['author']; ?></a>
-    <?php endif; ?>
+	<?php if (empty($id)): ?>
+	<?php foreach ($animals as $animal): ?>
+	<div class="animals-section__card">
+		<a href="#">
+			<figure>
+				<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+			</figure>
+		</a>
+		<div class="caption">
+			<a href='/<?= $animal[' id ']; ?>'>
+				<?= $animal['name']; ?>
+			</a>
+			<a href='https://t.me/<?= $animal[' author ']; ?>'>
+				<?= $animal['author']; ?>
+			</a>
+		</div>
+
+	</div>
+	<?php endforeach; ?>
+	<?php else: ?>
+	<div class="animals-section__card">
+		<a href="#">
+			<figure>
+				<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+			</figure>
+		</a>
+		<div class="caption">
+			<h3>
+				<?= $animal['name']; ?>
+			</h3>
+			<a href='https://t.me/<?= $animal[' author ']; ?>'>
+				<?= $animal['author']; ?>
+			</a>
+		</div>
+
+	</div>
+	<?php endif; ?>
 </body>
+
 </html>
