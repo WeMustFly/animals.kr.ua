@@ -52,7 +52,7 @@
 					<?php if (empty($id)): ?>
 					<?php foreach ($animals as $animal): ?>
 					<div class="animals-section__card">
-						<a href="#">
+						<a href="/<?= $animal['id']; ?>">
 							<figure>
 								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
 							</figure>
@@ -61,7 +61,7 @@
 							<a href='/<?= $animal['id']; ?>'>
 								<p><?= $animal['name']; ?></p>
 							</a>
-							<a href='https://t.me/<?= $animal['author']; ?>'>
+							<a href='https://t.me/<?= $animal['author']; ?>' target="_blank">
 								<?= $animal['author']; ?>
 							</a>
 						</div>
@@ -70,16 +70,14 @@
 					<?php endforeach; ?>
 					<?php else: ?>
 					<div class="animals-section__card">
-						<a href="#">
-							<figure>
-								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
-							</figure>
-						</a>
+						<figure>
+							<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
+						</figure>
 						<div class="caption">
 							<p>
 								<?= $animal['name']; ?>
 							</p>
-							<a href='https://t.me/<?= $animal['author']; ?>'>
+							<a href='https://t.me/<?= $animal['author']; ?>' target="_blank">
 						</div>
 
 					</div>
