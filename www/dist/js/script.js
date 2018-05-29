@@ -1,1 +1,1 @@
-"use strict";!function(){document.querySelectorAll(".caption p").forEach(function(e){if(!(e.innerText.length<50)){console.log(e);var n=e.innerText.substring(0,40)+"...";e.innerText=n}});var n=document.getElementById("mobileMenu");n.onclick=function(e){n.classList.toggle("active")}}();
+"use strict";!function(){document.querySelectorAll(".caption p").forEach(function(e){if(!(e.innerText.length<50)){var n=e.innerText.substring(0,40)+"...";e.innerText=n}});var n=document.getElementById("mobileMenu");n.onclick=function(e){n.classList.toggle("active")}}();

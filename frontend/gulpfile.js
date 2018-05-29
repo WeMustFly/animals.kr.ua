@@ -6,20 +6,22 @@ const gulp = require('gulp'),
 
 const path = {
 	dist: '../www/dist/',
-	src: './src/',
+	src: './src/'
 }
 
 gulp.task('clean', () => {
 	return gulp.src(path.dist, {
 			read: false
 		})
-		.pipe($.clean());
+		.pipe($.clean({
+			force: true
+		}));
 });
 
 gulp.task('connect', () => {
 	$.connect.server({
 		port: 5000,
-		root: 'dist',
+		root: path.dist,
 		livereload: true
 	});
 });
