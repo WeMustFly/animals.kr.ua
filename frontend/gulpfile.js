@@ -5,7 +5,7 @@ const gulp = require('gulp'),
 	});
 
 const path = {
-	dist: './dist/',
+	dist: '../www/dist/',
 	src: './src/',
 }
 
