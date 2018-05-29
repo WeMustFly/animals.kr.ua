@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Animals.kr.ua</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/dist/css/style.css">
 </head>
 
 <body>
@@ -54,14 +54,14 @@
 					<div class="animals-section__card">
 						<a href="#">
 							<figure>
-								<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
 							</figure>
 						</a>
 						<div class="caption">
 							<a href='/<?= $animal[' id ']; ?>'>
 								<?= $animal['name']; ?>
 							</a>
-							<a href='https://t.me/<?= $animal[' author ']; ?>'>
+							<a href='https://t.me/<?= $animal['author']; ?>'>
 								<?= $animal['author']; ?>
 							</a>
 						</div>
@@ -72,14 +72,14 @@
 					<div class="animals-section__card">
 						<a href="#">
 							<figure>
-								<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
 							</figure>
 						</a>
 						<div class="caption">
 							<h3>
 								<?= $animal['name']; ?>
 							</h3>
-							<a href='https://t.me/<?= $animal[' author ']; ?>'>
+							<a href='https://t.me/<?= $animal['author']; ?>'>
 								<?= $animal['author']; ?>
 							</a>
 						</div>
@@ -110,17 +110,17 @@
 					<ul>
 						<li class="footer_navigation__item">
 							<a href="#" class="footer_navigation__link">
-								<img src="img/facebook.svg" alt="">
+								<img src="/dist/img/facebook.svg" alt="">
 							</a>
 						</li>
 						<li class="footer_navigation__item">
 							<a href="#" class="footer_navigation__link">
-								<img src="img/instagram.svg" alt="">
+								<img src="/dist/img/instagram.svg" alt="">
 							</a>
 						</li>
 						<li class="footer_navigation__item">
 							<a href="#" class="footer_navigation__link">
-								<img src="img/twitter.svg" alt="">
+								<img src="/dist/img/twitter.svg" alt="">
 							</a>
 						</li>
 					</ul>
@@ -128,7 +128,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/script.js"></script>
+	<script src="/dist/js/script.js"></script>
 </body>
 
 </html>
