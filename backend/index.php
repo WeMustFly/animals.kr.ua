@@ -6,7 +6,7 @@ $id = intval($_REQUEST['id']);
 $animals = [];
 try {
     $dbh = new PDO('mysql:host=' . $config['db_host'] . ';dbname=' . $config['db_name'], $config['db_user'], $config['db_password']);
-
+    $dbh->exec("set names utf8");
 
     if ($id) {
         $sql = 'SELECT * from animals WHERE id = ' . $id;
