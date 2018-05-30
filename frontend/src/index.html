@@ -61,19 +61,19 @@
 						<span class="animals-section__card-icon">
 							<img src="https://via.placeholder.com/50x50" alt="">
 						</span>
-						<a href="/<?= $animal['id']; ?>">
+						<a href='/<?= $animal["id"]; ?>'>
 							<figure>
-								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
+								<img src='/images/<?= $animal["picture"]; ?>' alt='<?= $animal["name"]; ?>'>
 							</figure>
 						</a>
 						<div class="animals-section__card__caption">
-							<a href='/<?= $animal['id']; ?>'>
+							<a href='/<?= $animal["id"]; ?>'>
 								<p>
-									<?= $animal['name']; ?>
+									<?= $animal["name"]; ?>
 								</p>
 							</a>
-							<a class="tel-login" href='https://t.me/<?= $animal['author']; ?>' target="_blank">
-								<?= $animal['author']; ?>
+							<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
+								<?= $animal["author"]; ?>
 							</a>
 						</div>
 
@@ -85,13 +85,13 @@
 							<img src="https://via.placeholder.com/50x50" alt="">
 						</span>
 						<figure>
-							<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal[' name ']; ?>'>
+							<img src='/images/<?= $animal["picture"]; ?>' alt='<?= $animal["name"]; ?>'>
 						</figure>
 						<div class="animals-section__card__caption">
 							<p>
-								<?= $animal['name']; ?>
+								<?= $animal["name"]; ?>
 							</p>
-							<a class="tel-login" href='https://t.me/<?= $animal[' author ']; ?>' target="_blank">
+							<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
 						</div>
 					</div>
 					<?php endif; ?>
