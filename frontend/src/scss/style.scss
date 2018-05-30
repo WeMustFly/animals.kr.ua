@@ -26,7 +26,15 @@ body {
 		margin-right: -$container-padding;
 		padding: 15px;
 	}
-	button {
+	.container {
+		width: 100%;
+		max-width: 1176px;
+		margin: 0 auto;
+		background: white;
+		padding: 0 $container-padding;
+		border-radius: 10px;
+	}
+	.button {
 		background: $yellow-color;
 		border: none;
 		border-radius: 35px;
@@ -45,6 +53,16 @@ body {
 			background: grey;
 		}
 	}
+	.section_heading {
+		text-align: center;
+		font-size: 2.2em;
+		span {
+			color: $yellow-color;
+		}
+		@media screen and (max-width: 479px) {
+			margin: 0;
+		}
+	}
 	.header {
 		box-shadow: $header-shadow;
 		.container {
@@ -57,7 +75,7 @@ body {
 			justify-content: space-between;
 			align-items: center;
 		}
-		.mobile-menu {
+		&_mobile-menu {
 			@media screen and (min-width: 480px) {
 				display: none;
 			}
@@ -91,7 +109,7 @@ body {
 					display: block;
 				}
 			}
-			span {
+			&__item {
 				display: block;
 				width: 30px;
 				height: 3px;
@@ -142,173 +160,154 @@ body {
 			}
 		}
 	}
-	.container {
-		width: 100%;
-		max-width: 1176px;
-		margin: 0 auto;
-		background: white;
-		padding: 0 $container-padding;
-		border-radius: 10px;
-		.section_heading {
-			text-align: center;
-			font-size: 2.2em;
-			span {
-				color: $yellow-color;
-			}
-			@media screen and (max-width: 479px) {
-				margin: 0;
-			}
+	.main {
+		margin: 50px 0;
+		background: $white;
+		@media screen and (max-width: 479px) {
+			padding-top: 40px;
 		}
-		main {
-			margin: 50px 0;
-			background: $white;
-			@media screen and (max-width: 479px) {
-				padding-top: 40px;
-			}
-		}
-		.main-slider {
+		&_slider {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			position: relative;
-			img {
+			&__img {
 				width: 100%;
 				height: auto;
 				border-bottom: 3px solid $yellow-color;
 			}
-			h1 {
-				margin: 0;
-				position: absolute;
-				left: 50px;
-				bottom: 50px;
-				font-size: 2.2em;
-				color: $white;
-				font-weight: 600;
-				&:before {
-					content: "";
-					position: relative;
-					top: 2px;
-					display: inline-block;
-					height: 28px;
-					border-left: 3px solid $yellow-color;
-					margin-right: 20px;
-				}
-			}
 		}
-		.animals-section {
-			.cards {
-				display: flex;
-				justify-content: space-around;
-				flex-wrap: wrap;
-				@media screen and (max-width: 479px) {
-					flex-direction: column;
-					align-items: center;
-				}
-			}
-			&__card {
-				border: 1px solid lighten($grey-color, 20);
-				border-radius: 5px;
-				display: inline-block;
-				overflow: hidden;
-				position: relative;
-				width: 30%;
-				max-width: 300px;
-				max-height: 300px;
-				margin-bottom: 20px;
-				box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.1);
-				&-icon{
-					$size: 45px;
-					$placing: 15px;
-					position: absolute;
-					top: $placing;
-					right: $placing;
-					display: block;
-					width: $size;
-					height: $size;
-					border-radius: 50%;
-					overflow: hidden;
-					background: red;
-					z-index: 32;
-					img{
-						display: none;
-					}
-				}
-				
-				@media screen and (max-width: 479px) {
-					width: 100%;
-					margin-bottom: 10px;
-				}
-				figure {
-					padding: 0;
-					margin: 0;
-					width: 100%;
-					position: relative;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
-					min-width: 250px;
-					min-height: 250px;
-					border-bottom: 3px solid $yellow-color;
-					img {
-						max-width: 250px;
-						max-height: 250px;
-					}
-				}
-				.caption {
-					padding: 15px;
-					position: relative;
-					bottom: 0;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					a {
-						display: inline-block;
-						&.tel-login {
-							background: lighten($grey-color, 20);
-							text-decoration: none;
-							width: 70px;
-							text-align: center;
-							color: $grey-color;
-							text-transform: lowercase;
-							border-radius: 25px;
-							font-size: .8em;
-							padding: 2px;
-						}
-					}
-					p {
-						display: inline-block;
-						margin: 0;
-						font-weight: 600;
-					}
-				}
-			}
-			button {
-				display: block;
-				margin: 0 auto;
-				background: $green-color;
-			}
-		}
-		.instructions {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			background: $brown-color;
+		&_heading {
+			margin: 0;
+			position: absolute;
+			left: 50px;
+			bottom: 50px;
+			font-size: 2.2em;
 			color: $white;
-			margin-left: -$container-padding;
-			margin-right: -$container-padding;
+			font-weight: 600;
+			&:before {
+				content: "";
+				position: relative;
+				top: 2px;
+				display: inline-block;
+				height: 28px;
+				border-left: 3px solid $yellow-color;
+				margin-right: 20px;
+			}
 		}
-		.info-section {
-			p {
-				text-align: center;
-				max-width: 80%;
-				margin: 0 auto;
-				a {
-					font-weight: 600;
-					color: $brown-color;
+	}
+	.animals-section {
+		&_cards {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			@media screen and (max-width: 479px) {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		&__card {
+			border: 1px solid lighten($grey-color, 20);
+			border-radius: 5px;
+			display: inline-block;
+			overflow: hidden;
+			position: relative;
+			width: 30%;
+			max-width: 300px;
+			max-height: 300px;
+			margin-bottom: 20px;
+			box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.1);
+			&-icon {
+				$size: 45px;
+				$placing: 15px;
+				position: absolute;
+				top: $placing;
+				right: $placing;
+				display: block;
+				width: $size;
+				height: $size;
+				border-radius: 50%;
+				overflow: hidden;
+				background: red;
+				z-index: 32;
+				img {
+					display: none;
 				}
 			}
+			@media screen and (max-width: 479px) {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+			figure {
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				min-width: 250px;
+				min-height: 250px;
+				border-bottom: 3px solid $yellow-color;
+				img {
+					max-width: 250px;
+					max-height: 250px;
+				}
+			}
+			&__caption {
+				padding: 15px;
+				position: relative;
+				bottom: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				a {
+					display: inline-block;
+					&.tel-login {
+						background: lighten($grey-color, 20);
+						text-decoration: none;
+						width: 70px;
+						text-align: center;
+						color: $grey-color;
+						text-transform: lowercase;
+						border-radius: 25px;
+						font-size: .8em;
+						padding: 2px;
+					}
+				}
+				p {
+					display: inline-block;
+					margin: 0;
+					font-weight: 600;
+				}
+			}
+		}
+		.button {
+			display: block;
+			margin: 0 auto;
+			background: $green-color;
+		}
+	}
+	.instructions-section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: $brown-color;
+		color: $white;
+		margin-left: -$container-padding;
+		margin-right: -$container-padding;
+	}
+	.info-section {
+		&_text {
+			text-align: center;
+			max-width: 80%;
+			margin: 0 auto;
+		}
+		&_link {
+			font-weight: 600;
+			color: $brown-color;
 		}
 	}
 	.footer {
@@ -323,7 +322,7 @@ body {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			p {
+			&_text {
 				color: $yellow-color;
 			}
 		}
@@ -337,15 +336,14 @@ body {
 				display: flex;
 				justify-content: space-between;
 			}
-			li {
+			&__item {
 				list-style: none;
 				margin-right: 10px;
 				a {
 					color: black;
 					text-decoration: none;
 					text-transform: uppercase;
-
-					img{
+					img {
 						width: 50px;
 					}
 				}

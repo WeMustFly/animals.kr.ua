@@ -19,10 +19,10 @@
 						<img src="https://via.placeholder.com/200x50" alt="site logo">
 					</a>
 				</div>
-				<div class="mobile-menu" id="mobileMenu">
-					<span></span>
-					<span></span>
-					<span></span>
+				<div class="header_mobile-menu" id="mobileMenu">
+					<span class="header_mobile-menu__item"></span>
+					<span class="header_mobile-menu__item"></span>
+					<span class="header_mobile-menu__item"></span>
 				</div>
 				<nav class="header_navigation">
 					<ul>
@@ -39,22 +39,22 @@
 				</nav>
 			</div>
 			<div class="right-side">
-				<button>Допомогти</button>
+				<button class="button">Допомогти</button>
 			</div>
 		</div>
 
 	</header>
 	<div class="container">
-		<main>
-			<section class="main-slider">
-				<img src="https://via.placeholder.com/300x130" alt="">
-				<h1>Притулок для тварин в Кременчуцi</h1>
+		<main class="main">
+			<section class="main_slider">
+				<img class="main_slider__img" src="https://via.placeholder.com/300x130" alt="">
+				<h1 class="main_heading">Притулок для тварин в Кременчуцi</h1>
 			</section>
 			<section class="animals-section">
 				<h2 class="section_heading">Цi хвостики
 					<span>чекають на Вас :</span>
 				</h2>
-				<div class="cards">
+				<div class="animals-section_cards">
 					<?php if (empty($id)): ?>
 					<?php foreach ($animals as $animal): ?>
 					<div class="animals-section__card">
@@ -63,16 +63,16 @@
 						</span>
 						<a href="/<?= $animal['id']; ?>">
 							<figure>
-								<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+								<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal['name']; ?>'>
 							</figure>
 						</a>
-						<div class="caption">
-							<a href='/<?= $animal[' id ']; ?>'>
+						<div class="animals-section__card__caption">
+							<a href='/<?= $animal['id']; ?>'>
 								<p>
 									<?= $animal['name']; ?>
 								</p>
 							</a>
-							<a class="tel-login" href='https://t.me/<?= $animal[' author ']; ?>' target="_blank">
+							<a class="tel-login" href='https://t.me/<?= $animal['author']; ?>' target="_blank">
 								<?= $animal['author']; ?>
 							</a>
 						</div>
@@ -85,9 +85,9 @@
 							<img src="https://via.placeholder.com/50x50" alt="">
 						</span>
 						<figure>
-							<img src='/images/<?= $animal[' picture ']; ?>' alt='<?= $animal[' name ']; ?>'>
+							<img src='/images/<?= $animal['picture']; ?>' alt='<?= $animal[' name ']; ?>'>
 						</figure>
-						<div class="caption">
+						<div class="animals-section__card__caption">
 							<p>
 								<?= $animal['name']; ?>
 							</p>
@@ -96,22 +96,22 @@
 					</div>
 					<?php endif; ?>
 				</div>
-				<button>Всi тваринки</button>
+				<button class="button">Всi тваринки</button>
 			</section>
-			<section class="instructions">
+			<section class="instructions-section">
 				<h2 class="section_heading">Хочете вiддати тваринку
 					<span>в добрi руки?</span>
 				</h2>
-				<button>вiддати</button>
+				<button class="button">вiддати</button>
 			</section>
 			<section class="info-section">
 				<h2 class="section_heading">Шановні однодумці та мешканці Кременчука!</h2>
-				<p>
+				<p class="info-section_text">
 					Наше добровільне волонтерський об'єднання існує більше 5 років. Ми в нашому місті пройшли довгий шлях із захисту тварин.
 					Зараз в Кременчуці бездомних тварин більше не вбивають, а забирають з вулиць для стерилізації, лікування і прістройства
 					в добрі руки. Тих, кого стерилізували випускають назад у середовище проживання. А ще два роки тому це було пекло для
 					тварин, їх убивали прямо на вулицях дитиліном, від якого вони гинули в муках.
-					<a href='#'>Читати далі</a>
+					<a class="info-section_link" href='#'>Читати далі</a>
 				</p>
 			</section>
 		</main>
@@ -119,12 +119,12 @@
 	<footer class="footer">
 		<div class="container">
 			<div class="left-side">
-				<p>©2018. Онлайн притулок для тварин. Кременчук</p>
+				<p class="left-side_text">©2018. Онлайн притулок для тварин. Кременчук</p>
 			</div>
 			<div class="right-side">
 				<nav class="footer_social-navigation">
 					<ul>
-						<li class="footer_navigation__item">
+						<li class="footer_social-navigation__item">
 							<a href="https://m.facebook.com/groups/dogkat/" class="footer_navigation__link" terget="_blank">
 								<img src="/dist/img/facebook.svg" alt="">
 							</a>
