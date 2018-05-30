@@ -6,7 +6,8 @@ const gulp = require('gulp'),
 
 const path = {
 	dist: '../www/dist/',
-	src: './src/'
+	src: './src/',
+	distHTML: '../www/'
 }
 
 gulp.task('clean', () => {
@@ -21,7 +22,7 @@ gulp.task('clean', () => {
 gulp.task('connect', () => {
 	$.connect.server({
 		port: 5000,
-		root: path.dist,
+		root: path.distHTML,
 		livereload: true
 	});
 });
@@ -32,7 +33,7 @@ gulp.task('html', () => {
 		.pipe($.htmlmin({
 			collapseWhitespace: true
 		}))
-		.pipe(gulp.dest(path.dist))
+		.pipe(gulp.dest(path.distHTML))
 		.pipe($.connect.reload());
 });
 

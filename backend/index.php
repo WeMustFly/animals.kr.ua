@@ -31,4 +31,4 @@ try {
     die();
 }
 
-include(__DIR__ . '/../www/dist/index.html');
+include(__DIR__ . '/../www/index.html');
