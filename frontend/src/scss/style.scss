@@ -14,27 +14,26 @@ body {
 	color: $brown-dark;
 	header,
 	footer {
-		padding: 23px 0;
-		@media screen and (max-width: 991px) {
-			padding: 10px 0;
-		}
-	}
-	header,
-	footer {
+		padding: 13px 0;
 		background: $white;
-		padding: 13px;
-		@media screen and (max-width: 991px) {
-			padding: 0;
-		}
 	}
 	section {
 		padding: 23px 30px 0;
+		@media screen and (max-width: 820px) {
+			padding: 23px 10px 0;
+		}
 	}
 
 	.container{
 		margin: 0 auto;
 		width: 100%;
 		max-width: 1176px;
+	}
+	.inner_container {
+		@include flex-sb-c;
+		@media screen and (max-width: 820px) {
+			justify-content: space-around;
+		}
 	}
 	
 	.button {
@@ -51,11 +50,11 @@ body {
 		cursor: pointer;
 		text-transform: uppercase;
 		@include transition;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: 820px) {
 			padding: 10px 20px;
 			font-size: .8em;
 		}
-		@media screen and (min-width: 992px) {
+		@media screen and (min-width: 821px) {
 			min-width: 180px;
 		}
 		&:hover {
@@ -70,7 +69,7 @@ body {
 			span {
 				color: $yellow-color;
 			}
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 820px) {
 				margin: 0;
 			}
 		}
@@ -90,24 +89,30 @@ body {
 		width: 100%;
 		top: 0;
 		margin: 0;
-		&_container{
-			@include flex-sb-c;
-		}
-		@media screen and (max-width: 991px) {
+		
+		@media screen and (max-width: 820px) {
 			padding: 15px 0;
 		}
 		.left-side {
 			@include flex-sb-c;
+			@media screen and (max-width: 1176px) {
+				padding-left: 15px;
+			}
+		}
+		.right-side{
+			@media screen and (max-width: 1176px) {
+				padding-right: 15px;
+			}
 		}
 		&_logo {
 			img {
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					width: 60%;
 				}
 			}
 		}
 		&_mobile-menu {
-			@media screen and (min-width: 992px) {
+			@media screen and (min-width: 821px) {
 				display: none;
 			}
 			@include size(50px);
@@ -151,7 +156,7 @@ body {
 		}
 		&_navigation {
 			margin-right: 20px;
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 820px) {
 				display: none;
 				position: absolute;
 				width: 100%;
@@ -163,7 +168,7 @@ body {
 			ul {
 				@include flex-sb-c;
 				margin: 5px 0;
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					align-items: flex-start;
 					flex-direction: column;
 					padding: 0 0 0 50px;
@@ -172,7 +177,7 @@ body {
 			&__item {
 				list-style: none;
 				margin-right: 35px;
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					margin-bottom: 5px;
 					text-indent: 10px;
 				}
@@ -184,7 +189,7 @@ body {
 				&.active {
 					color: $yellow-color;
 				}
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					color: white;
 				}
 			}
@@ -212,7 +217,7 @@ body {
 		position: relative;
 		z-index: 2;
 		margin: 110px 0 77px;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: 820px) {
 			margin: 90px 0 35px;
 		}
 		&_slider {
@@ -232,8 +237,8 @@ body {
 			font-size: 2.2em;
 			color: $white;
 			font-weight: 600;
-			@media screen and (max-width: 991px) {
-				font-size: 1.5em;
+			@media screen and (max-width: 820px) {
+				font-size: 1.1em;
 				left: initial;
 				bottom: initial;
 				width: 100%;
@@ -249,7 +254,7 @@ body {
 				height: 29px;
 				border-left: 5px solid $yellow-color;
 				margin-right: 24px;
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					display: none;
 				}
 			}
@@ -257,12 +262,12 @@ body {
 	}
 	.animals-section {
 		padding-top: 68px;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: 820px) {
 			padding-top: 30px;
 		}
 		.section_heading_h2 {
-			@media screen and (max-width: 991px) {
-				font-size: 1.2em;
+			@media screen and (max-width: 820px) {
+				font-size: 1.1em;
 			}
 		}
 		&_cards {
@@ -270,7 +275,7 @@ body {
 			justify-content: space-around;
 			flex-wrap: wrap;
 			margin-top: 44px;
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 1060px) {
 				flex-direction: column;
 				align-items: center;
 				margin-top: 15px;
@@ -302,7 +307,7 @@ body {
 					width: 50%;
 				}
 			}
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 1060px) {
 				width: 100%;
 				margin-bottom: 10px;
 			}
@@ -371,10 +376,14 @@ body {
 		flex-direction: column;
 		background: $brown-color;
 		color: $white;
+		@media screen and (max-width: 820px) {
+			margin-top: 35px;
+			padding: 30px 0 30px;
+		}
 		
 		.section_heading_h2 {
 			margin-bottom: 36px;
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 820px) {
 				font-size: 1.2em;
 			}
 		}
@@ -382,8 +391,14 @@ body {
 	.info-section {
 		padding: 56px 0 84px;
 		position: relative;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: 820px) {
 			padding: 30px 15px 40px;
+		}
+		.section_heading_h3{
+			@media screen and (max-width: 820px) {
+				font-size: 1.1em;
+			}
+			
 		}
 		&_text {
 			position: relative;
@@ -391,7 +406,7 @@ body {
 			text-align: center;
 			max-width: 80%;
 			margin: 0 auto;
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: 820px) {
 				max-width: 100%;
 			}
 		}
@@ -402,17 +417,15 @@ body {
 	}
 	.footer {
 		background: $brown-dark;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: 820px) {
 			width: 100%;
 			margin: 0;
 		}
 		.left-side {
 			@include flex-sb-c;
+			padding-left: 15px;
 			&_text {
 				color: $yellow-color;
-			}
-			@media screen and (max-width: 991px) {
-				padding-left: 15px;
 			}
 		}
 		.right-side {
@@ -421,7 +434,7 @@ body {
 		&_social-navigation {
 			ul {
 				@include flex-sb-c;
-				@media screen and (max-width: 991px) {
+				@media screen and (max-width: 820px) {
 					padding-left: 10px;
 				}
 			}
