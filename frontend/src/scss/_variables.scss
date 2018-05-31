@@ -24,3 +24,12 @@ $h2-font: 30px;
 $h3-font: 25px;
 $h4-font: 16px;
 $text-font: $h4-font;
+
+
+$z-index: ( 
+	maincontainerAfter: 1,
+	main: 2,
+	mobmenu: 3,
+	header: 4,
+	modal: 5
+	);
