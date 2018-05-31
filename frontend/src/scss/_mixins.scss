@@ -1,0 +1,20 @@
+@mixin flex-sb-c{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@mixin flex-c-c {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin size($size){
+	width: $size;
+	height: $size;
+}
+
+@mixin transition {
+	transition: background .3s ease;
+}
