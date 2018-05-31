@@ -12,92 +12,101 @@
 </head>
 
 <body>
-	<header class="header">
-		<div class="inner_container container">
-			<div class="left-side">
-				<div class="header_logo">
-					<a href="/">
-						<img src="https://via.placeholder.com/200x50" alt="site logo">
-					</a>
-				</div>
-				<div class="header_mobile-menu" id="mobileMenu">
-					<span class="header_mobile-menu__item"></span>
-					<span class="header_mobile-menu__item"></span>
-					<span class="header_mobile-menu__item"></span>
-				</div>
-				<nav class="header_navigation">
-					<ul>
-						<li class="header_navigation__item">
-							<a class="header_navigation__link active" href="#">Про нас</a>
-						</li>
-						<li class="header_navigation__item">
-							<a class="header_navigation__link" href="#">Тваринки</a>
-						</li>
-						<li class="header_navigation__item">
-							<a class="header_navigation__link" href="#">Контакти</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<div class="right-side">
-				<button class="button">Допомогти</button>
-			</div>
+	<div class="modal" id="modal">
+		<span class="modal_close" id="closeModal">X</span>
+		<div class="modal_body">
+			<img src="/dist/img/step1.png" alt="telegram bot instructions">
+			<img src="/dist/img/step2.png" alt="telegram bot instructions">
+			<img src="/dist/img/step3.png" alt="telegram bot instructions">
 		</div>
+	</div>
+	<div class="content">
+		<header class="header" id="header">
+			<div class="inner_container container">
+				<div class="left-side">
+					<div class="header_logo">
+						<a href="/">
+							<img src="https://via.placeholder.com/200x50" alt="site logo">
+						</a>
+					</div>
+					<div class="header_mobile-menu" id="mobileMenu">
+						<span class="header_mobile-menu__item"></span>
+						<span class="header_mobile-menu__item"></span>
+						<span class="header_mobile-menu__item"></span>
+					</div>
+					<nav class="header_navigation">
+						<ul>
+							<li class="header_navigation__item">
+								<a class="header_navigation__link active" href="#">Про нас</a>
+							</li>
+							<li class="header_navigation__item">
+								<a class="header_navigation__link" href="#">Тваринки</a>
+							</li>
+							<li class="header_navigation__item">
+								<a class="header_navigation__link" href="#">Контакти</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="right-side">
+					<button class="button" id="openModal">Iнструкцiя</button>
+				</div>
+			</div>
 
-	</header>
-	<div class="container main-container">
-		<main class="main">
-			<section class="main_slider">
-				<img class="main_slider__img" src="/dist/img/main-gallery-photo-01.jpg" alt="">
-				<h1 class="main_heading">Притулок для тварин в Кременчуцi</h1>
-			</section>
-			<section class="animals-section">
-				<h2 class="section_heading_h2">Цi хвостики
-					<span>чекають на Вас :</span>
-				</h2>
-				<div class="animals-section_cards">
-					<?php if (empty($id)): ?>
-					<?php foreach ($animals as $animal): ?>
-					<div class="animals-section__card">
-						<span class="animals-section__card-icon">
-							<img src="/dist/img/dog-icon.svg" alt="">
-						</span>
-						<a href='/<?= $animal["id"]; ?>'>
+		</header>
+		<div class="container main-container">
+			<main class="main">
+				<section class="main_slider">
+					<img class="main_slider__img" src="/dist/img/main-gallery-photo-01.jpg" alt="">
+					<h1 class="main_heading">Притулок для тварин в Кременчуцi</h1>
+				</section>
+				<section class="animals-section">
+					<h2 class="section_heading_h2">Цi хвостики
+						<span>чекають на Вас :</span>
+					</h2>
+					<div class="animals-section_cards">
+						<?php if (empty($id)): ?>
+						<?php foreach ($animals as $animal): ?>
+						<div class="animals-section__card">
+							<span class="animals-section__card-icon">
+								<img src="/dist/img/dog-icon.svg" alt="">
+							</span>
+							<a href='/<?= $animal["id"]; ?>'>
+								<figure>
+									<img src='/images/<?= $animal["picture"]; ?>' alt='<?= $animal["name"]; ?>'>
+								</figure>
+							</a>
+							<div class="animals-section__card__caption">
+								<a href='/<?= $animal["id"]; ?>'>
+									<p>
+										<?= $animal["name"]; ?>
+									</p>
+								</a>
+								<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
+									<?= $animal["author"]; ?>
+								</a>
+							</div>
+						</div>
+						<?php endforeach; ?>
+						<?php else: ?>
+						<div class="animals-section__card">
+							<span class="animals-section__card-icon">
+								<img src="/dist/img/dog-icon.svg" alt="">
+							</span>
 							<figure>
 								<img src='/images/<?= $animal["picture"]; ?>' alt='<?= $animal["name"]; ?>'>
 							</figure>
-						</a>
-						<div class="animals-section__card__caption">
-							<a href='/<?= $animal["id"]; ?>'>
+							<div class="animals-section__card__caption">
 								<p>
 									<?= $animal["name"]; ?>
 								</p>
-							</a>
-							<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
-								<?= $animal["author"]; ?>
-							</a>
+								<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
+							</div>
 						</div>
-					</div>
-					<?php endforeach; ?>
-					<?php else: ?>
-					<div class="animals-section__card">
-						<span class="animals-section__card-icon">
-							<img src="/dist/img/dog-icon.svg" alt="">
-						</span>
-						<figure>
-							<img src='/images/<?= $animal["picture"]; ?>' alt='<?= $animal["name"]; ?>'>
-						</figure>
-						<div class="animals-section__card__caption">
-							<p>
-								<?= $animal["name"]; ?>
-							</p>
-							<a class="tel-login" href='https://t.me/<?= $animal["author"]; ?>' target="_blank">
-						</div>
-					</div>
-					<?php endif; ?>
+						<?php endif; ?>
 
 
-					<!-- <div class="animals-section__card">
+						<!-- <div class="animals-section__card">
 						<span class="animals-section__card-icon">
 							<img src="/dist/img/dog-icon.svg" alt="">
 						</span>
@@ -219,45 +228,47 @@
 					</div> -->
 
 
-				</div>
-				<button class="button">Всi тваринки</button>
-			</section>
-			<section class="instructions-section">
-				<h2 class="section_heading_h2">Хочете вiддати тваринку
-					<span>в добрi руки?</span>
-				</h2>
-				<button class="button">вiддати</button>
-			</section>
-			<section class="info-section">
-				<h2 class="section_heading_h3">Шановні однодумці та мешканці Кременчука!</h2>
-				<p class="info-section_text">
-					Наше добровільне волонтерський об'єднання існує більше 5 років. Ми в нашому місті пройшли довгий шлях із захисту тварин.
-					Зараз в Кременчуці бездомних тварин більше не вбивають, а забирають з вулиць для стерилізації, лікування і прістройства
-					в добрі руки. Тих, кого стерилізували випускають назад у середовище проживання. А ще два роки тому це було пекло для
-					тварин, їх убивали прямо на вулицях дитиліном, від якого вони гинули в муках.
-					<a class="info-section_link" href='#'>Читати далі</a>
-				</p>
-			</section>
-		</main>
-	</div>
-	<footer class="footer">
-		<div class="inner_container container">
-			<div class="left-side">
-				<p class="left-side_text">©2018. Онлайн притулок для тварин. Кременчук</p>
-			</div>
-			<div class="right-side">
-				<nav class="footer_social-navigation">
-					<ul>
-						<li class="footer_social-navigation__item">
-							<a href="https://m.facebook.com/groups/dogkat/" class="footer_navigation__link" terget="_blank">
-								<img src="/dist/img/facebook.svg" alt="">
-							</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
+					</div>
+					<button class="button">Всi тваринки</button>
+				</section>
+				<section class="instructions-section">
+					<h2 class="section_heading_h2">Хочете вiддати тваринку
+						<span>в добрi руки?</span>
+					</h2>
+					<button class="button">вiддати</button>
+				</section>
+				<section class="info-section">
+					<h2 class="section_heading_h3">Шановні однодумці та мешканці Кременчука!</h2>
+					<p class="info-section_text">
+						Наше добровільне волонтерський об'єднання існує більше 5 років. Ми в нашому місті пройшли довгий шлях із захисту тварин.
+						Зараз в Кременчуці бездомних тварин більше не вбивають, а забирають з вулиць для стерилізації, лікування і прістройства
+						в добрі руки. Тих, кого стерилізували випускають назад у середовище проживання. А ще два роки тому це було пекло для
+						тварин, їх убивали прямо на вулицях дитиліном, від якого вони гинули в муках.
+						<a class="info-section_link" href='#'>Читати далі</a>
+					</p>
+				</section>
+			</main>
 		</div>
-	</footer>
+		<footer class="footer">
+			<div class="inner_container container">
+				<div class="left-side">
+					<p class="left-side_text">©2018. Онлайн притулок для тварин. Кременчук</p>
+				</div>
+				<div class="right-side">
+					<nav class="footer_social-navigation">
+						<ul>
+							<li class="footer_social-navigation__item">
+								<a href="https://m.facebook.com/groups/dogkat/" class="footer_navigation__link" terget="_blank">
+									<img src="/dist/img/facebook.svg" alt="">
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</footer>
+	</div>
+
 	<script src="/dist/js/script.js"></script>
 </body>
 
