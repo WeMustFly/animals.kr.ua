@@ -7,15 +7,14 @@ body {
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: $main-font;
 	font-size: 100%;
-	background: lighten($grey-color, 20);
+	background: $grey-bg;
 	margin: 0;
-	color: $brown-text;
-	section,
+	color: $brown-dark;
 	header,
 	footer {
-		padding: 25px 0;
+		padding: 23px 0;
 		@media screen and (max-width: 479px) {
 			padding: 10px 0;
 		}
@@ -25,7 +24,10 @@ body {
 		background: $white;
 		margin-left: -$container-padding;
 		margin-right: -$container-padding;
-		padding: 15px;
+		padding: 13px;
+	}
+	section {
+		padding: 23px 0 0;
 	}
 	.container {
 		width: 100%;
@@ -49,23 +51,39 @@ body {
 		font-weight: 600;
 		cursor: pointer;
 		text-transform: uppercase;
-		transition: background .3s ease;
+		@include transition;
 		&:hover {
-			background: grey;
+			background: $yellow-hover;
 		}
 	}
 	.section_heading {
-		text-align: center;
-		font-size: 2.2em;
-		span {
-			color: $yellow-color;
+		&_h2 {
+			text-align: center;
+			margin: 0 auto;
+			font-size: $h2-font;
+			span {
+				color: $yellow-color;
+			}
+			@media screen and (max-width: 479px) {
+				margin: 0;
+			}
 		}
-		@media screen and (max-width: 479px) {
-			margin: 0;
+		&_h3 {
+			text-align: center;
+			margin: 0 auto 17px;
+			font-size: $h3-font;
+		}
+		&_h4 {
+			font-size: $h4-font;
 		}
 	}
 	.header {
 		box-shadow: $header-shadow;
+		position: fixed;
+		z-index: 100;
+		width: 100%;
+		top: 0;
+		margin: 0;
 		.container {
 			@include flex-sb-c;
 		}
@@ -141,7 +159,7 @@ body {
 				}
 			}
 			&__link {
-				color: $brown-text;
+				color: $brown-dark;
 				text-decoration: none;
 				font-weight: bold;
 				&.active {
@@ -153,9 +171,26 @@ body {
 			}
 		}
 	}
+	.main-container {
+		box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
+		position: relative;
+		&:after {
+			content: '';
+			background: url('/dist/img/paws-icon.svg') 95% 98% no-repeat;
+			background-size: 10%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: .1;
+			z-index: 1;
+		}
+	}
 	.main {
-		margin: 50px 0;
-		background: $white;
+		position: relative;
+		z-index: 2;
+		margin: 110px 0 77px;
 		@media screen and (max-width: 479px) {
 			padding-top: 40px;
 		}
@@ -165,14 +200,14 @@ body {
 			&__img {
 				width: 100%;
 				height: auto;
-				border-bottom: 3px solid $yellow-color;
+				border-bottom: 4px solid $yellow-color;
 			}
 		}
 		&_heading {
 			margin: 0;
 			position: absolute;
-			left: 50px;
-			bottom: 50px;
+			left: 63px;
+			bottom: 61px;
 			font-size: 2.2em;
 			color: $white;
 			font-weight: 600;
@@ -181,46 +216,48 @@ body {
 				position: relative;
 				top: 2px;
 				display: inline-block;
-				height: 28px;
-				border-left: 3px solid $yellow-color;
-				margin-right: 20px;
+				height: 29px;
+				border-left: 5px solid $yellow-color;
+				margin-right: 24px;
 			}
 		}
 	}
 	.animals-section {
+		padding-top: 68px;
 		&_cards {
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
+			margin-top: 44px;
 			@media screen and (max-width: 479px) {
 				flex-direction: column;
 				align-items: center;
 			}
 		}
 		&__card {
-			border: 1px solid lighten($grey-color, 20);
+			border: 1px solid $grey-color;
 			border-radius: 5px;
 			display: inline-block;
 			overflow: hidden;
 			position: relative;
 			width: 30%;
 			max-width: 300px;
-			max-height: 300px;
+			max-height: 400px;
 			margin-bottom: 20px;
 			box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.1);
 			&-icon {
-				@include size(45px);
+				@include size(35px);
 				$placing: 15px;
 				position: absolute;
 				top: $placing;
 				right: $placing;
-				display: block;
+				@include flex-c-c;
 				border-radius: 50%;
 				overflow: hidden;
-				background: red;
 				z-index: 32;
+				background: lighten($brown-dark, 20);
 				img {
-					display: none;
+					width: 50%;
 				}
 			}
 			@media screen and (max-width: 479px) {
@@ -228,37 +265,45 @@ body {
 				margin-bottom: 10px;
 			}
 			figure {
+				$img-size: 250px;
 				@include flex-c-c;
 				padding: 0;
 				margin: 0;
 				width: 100%;
 				position: relative;
 				flex-direction: column;
-				min-width: 250px;
-				min-height: 250px;
+				min-width: $img-size;
+				min-height: $img-size;
 				border-bottom: 3px solid $yellow-color;
+				background: $grey-bg;
 				img {
-					max-width: 250px;
-					max-height: 250px;
+					max-width: $img-size;
+					max-height: $img-size;
 				}
 			}
 			&__caption {
-				padding: 15px;
+				padding: 5px 15px;
 				position: relative;
 				bottom: 0;
-				@include flex-sb-c;
 				a {
-					display: inline-block;
+					display: block;
+					color: $brown-dark;
+					font-size: $h3-font;
 					&.tel-login {
-						background: lighten($grey-color, 20);
+						display: inline-block;
+						background: $grey-color;
 						text-decoration: none;
-						width: 70px;
 						text-align: center;
-						color: $grey-color;
+						color: $grey-dark;
 						text-transform: lowercase;
 						border-radius: 25px;
 						font-size: .8em;
-						padding: 2px;
+						padding: 2px 20px;
+						margin-top: 5px;
+						@include transition;
+						&:hover {
+							background: darken($grey-color, 10);
+						}
 					}
 				}
 				p {
@@ -272,29 +317,41 @@ body {
 			display: block;
 			margin: 0 auto;
 			background: $green-color;
+			&:hover {
+				background: $green-hover;
+			}
 		}
 	}
 	.instructions-section {
+		margin-top: 71px;
+		padding: 76px 0 60px;
 		@include flex-c-c;
 		flex-direction: column;
 		background: $brown-color;
 		color: $white;
 		margin-left: -$container-padding;
 		margin-right: -$container-padding;
+		.section_heading_h2 {
+			margin-bottom: 36px;
+		}
 	}
 	.info-section {
+		padding: 56px 0 84px;
+		position: relative;
 		&_text {
+			position: relative;
+			z-index: 2;
 			text-align: center;
 			max-width: 80%;
 			margin: 0 auto;
 		}
 		&_link {
 			font-weight: 600;
-			color: $brown-color;
+			color: $brown-light;
 		}
 	}
 	.footer {
-		background: $brown-color;
+		background: $brown-dark;
 		.container {
 			@include flex-sb-c;
 			background: none;
@@ -319,6 +376,11 @@ body {
 					color: black;
 					text-decoration: none;
 					text-transform: uppercase;
+					opacity: 0.8;
+					transition: opacity .3s ease;
+					&:hover {
+						opacity: 1;
+					}
 					img {
 						width: 50px;
 					}

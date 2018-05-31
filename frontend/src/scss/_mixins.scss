@@ -14,3 +14,7 @@
 	width: $size;
 	height: $size;
 }
+
+@mixin transition {
+	transition: background .3s ease;
+}
