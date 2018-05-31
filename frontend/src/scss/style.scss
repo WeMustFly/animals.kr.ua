@@ -15,28 +15,28 @@ body {
 	header,
 	footer {
 		padding: 23px 0;
-		@media screen and (max-width: 479px) {
+		@media screen and (max-width: 991px) {
 			padding: 10px 0;
 		}
 	}
 	header,
 	footer {
 		background: $white;
-		margin-left: -$container-padding;
-		margin-right: -$container-padding;
 		padding: 13px;
+		@media screen and (max-width: 991px) {
+			padding: 0;
+		}
 	}
 	section {
-		padding: 23px 0 0;
+		padding: 23px 30px 0;
 	}
-	.container {
+
+	.container{
+		margin: 0 auto;
 		width: 100%;
 		max-width: 1176px;
-		margin: 0 auto;
-		background: white;
-		padding: 0 $container-padding;
-		border-radius: 10px;
 	}
+	
 	.button {
 		background: $yellow-color;
 		border: none;
@@ -45,13 +45,19 @@ body {
 		margin: 0;
 		text-align: center;
 		display: inline-block;
-		height: 48px;
-		width: 180px;
+		padding: 16px 30px;
 		font-size: .875em;
 		font-weight: 600;
 		cursor: pointer;
 		text-transform: uppercase;
 		@include transition;
+		@media screen and (max-width: 991px) {
+			padding: 10px 20px;
+			font-size: .8em;
+		}
+		@media screen and (min-width: 992px) {
+			min-width: 180px;
+		}
 		&:hover {
 			background: $yellow-hover;
 		}
@@ -64,7 +70,7 @@ body {
 			span {
 				color: $yellow-color;
 			}
-			@media screen and (max-width: 479px) {
+			@media screen and (max-width: 991px) {
 				margin: 0;
 			}
 		}
@@ -84,22 +90,33 @@ body {
 		width: 100%;
 		top: 0;
 		margin: 0;
-		.container {
+		&_container{
 			@include flex-sb-c;
+		}
+		@media screen and (max-width: 991px) {
+			padding: 15px 0;
 		}
 		.left-side {
 			@include flex-sb-c;
 		}
+		&_logo {
+			img {
+				@media screen and (max-width: 991px) {
+					width: 60%;
+				}
+			}
+		}
 		&_mobile-menu {
-			@media screen and (min-width: 480px) {
+			@media screen and (min-width: 992px) {
 				display: none;
 			}
+			@include size(50px);
 			@include flex-c-c;
 			flex-direction: column;
-			@include size(50px);
-			background: black;
+			background: $brown-dark;
 			position: absolute;
 			top: $mobile-top;
+			left: 0;
 			z-index: 5;
 			&.active {
 				span {
@@ -134,17 +151,19 @@ body {
 		}
 		&_navigation {
 			margin-right: 20px;
-			@media screen and (max-width: 479px) {
+			@media screen and (max-width: 991px) {
 				display: none;
 				position: absolute;
 				width: 100%;
 				top: $mobile-top;
-				background: rgba(0, 0, 0, .8);
+				left: 0;
+				background: $brown-dark;
+				margin-right: 0;
 			}
 			ul {
 				@include flex-sb-c;
 				margin: 5px 0;
-				@media screen and (max-width: 479px) {
+				@media screen and (max-width: 991px) {
 					align-items: flex-start;
 					flex-direction: column;
 					padding: 0 0 0 50px;
@@ -153,7 +172,7 @@ body {
 			&__item {
 				list-style: none;
 				margin-right: 35px;
-				@media screen and (max-width: 479px) {
+				@media screen and (max-width: 991px) {
 					margin-bottom: 5px;
 					text-indent: 10px;
 				}
@@ -165,7 +184,7 @@ body {
 				&.active {
 					color: $yellow-color;
 				}
-				@media screen and (max-width: 479px) {
+				@media screen and (max-width: 991px) {
 					color: white;
 				}
 			}
@@ -174,6 +193,8 @@ body {
 	.main-container {
 		box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
 		position: relative;
+		background: $white;
+		border-radius: 10px;
 		&:after {
 			content: '';
 			background: url('/dist/img/paws-icon.svg') 95% 98% no-repeat;
@@ -191,8 +212,8 @@ body {
 		position: relative;
 		z-index: 2;
 		margin: 110px 0 77px;
-		@media screen and (max-width: 479px) {
-			padding-top: 40px;
+		@media screen and (max-width: 991px) {
+			margin: 90px 0 35px;
 		}
 		&_slider {
 			@include flex-c-c;
@@ -211,6 +232,15 @@ body {
 			font-size: 2.2em;
 			color: $white;
 			font-weight: 600;
+			@media screen and (max-width: 991px) {
+				font-size: 1.5em;
+				left: initial;
+				bottom: initial;
+				width: 100%;
+				text-align: center;
+				color: $white;
+				text-shadow: 1px 1px 10px rgba(0, 0, 0, .9);
+			}
 			&:before {
 				content: "";
 				position: relative;
@@ -219,19 +249,31 @@ body {
 				height: 29px;
 				border-left: 5px solid $yellow-color;
 				margin-right: 24px;
+				@media screen and (max-width: 991px) {
+					display: none;
+				}
 			}
 		}
 	}
 	.animals-section {
 		padding-top: 68px;
+		@media screen and (max-width: 991px) {
+			padding-top: 30px;
+		}
+		.section_heading_h2 {
+			@media screen and (max-width: 991px) {
+				font-size: 1.2em;
+			}
+		}
 		&_cards {
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 			margin-top: 44px;
-			@media screen and (max-width: 479px) {
+			@media screen and (max-width: 991px) {
 				flex-direction: column;
 				align-items: center;
+				margin-top: 15px;
 			}
 		}
 		&__card {
@@ -260,7 +302,7 @@ body {
 					width: 50%;
 				}
 			}
-			@media screen and (max-width: 479px) {
+			@media screen and (max-width: 991px) {
 				width: 100%;
 				margin-bottom: 10px;
 			}
@@ -329,21 +371,29 @@ body {
 		flex-direction: column;
 		background: $brown-color;
 		color: $white;
-		margin-left: -$container-padding;
-		margin-right: -$container-padding;
+		
 		.section_heading_h2 {
 			margin-bottom: 36px;
+			@media screen and (max-width: 991px) {
+				font-size: 1.2em;
+			}
 		}
 	}
 	.info-section {
 		padding: 56px 0 84px;
 		position: relative;
+		@media screen and (max-width: 991px) {
+			padding: 30px 15px 40px;
+		}
 		&_text {
 			position: relative;
 			z-index: 2;
 			text-align: center;
 			max-width: 80%;
 			margin: 0 auto;
+			@media screen and (max-width: 991px) {
+				max-width: 100%;
+			}
 		}
 		&_link {
 			font-weight: 600;
@@ -352,14 +402,17 @@ body {
 	}
 	.footer {
 		background: $brown-dark;
-		.container {
-			@include flex-sb-c;
-			background: none;
+		@media screen and (max-width: 991px) {
+			width: 100%;
+			margin: 0;
 		}
 		.left-side {
 			@include flex-sb-c;
 			&_text {
 				color: $yellow-color;
+			}
+			@media screen and (max-width: 991px) {
+				padding-left: 15px;
 			}
 		}
 		.right-side {
@@ -368,6 +421,9 @@ body {
 		&_social-navigation {
 			ul {
 				@include flex-sb-c;
+				@media screen and (max-width: 991px) {
+					padding-left: 10px;
+				}
 			}
 			&__item {
 				list-style: none;
@@ -391,6 +447,6 @@ body {
 }
 
 // .header,
-// .footer{
-// 	display: none!important;	
+// .footer {
+	// display: none !important;
 // }
