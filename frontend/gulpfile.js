@@ -37,11 +37,19 @@ gulp.task('html', () => {
 		.pipe($.connect.reload());
 });
 
-gulp.task('imgs', () => {
+gulp.task('imgs:dist', () => {
 	return gulp.src(path.src + 'img/**/*.*')
 		.pipe(gulp.dest(path.dist + 'img'))
 		.pipe($.connect.reload());
 });
+
+gulp.task('favicons:dist', () => {
+	return gulp.src(path.src + 'favicons/**/*.*')
+		.pipe(gulp.dest(path.dist + 'favicons'))
+		.pipe($.connect.reload());
+});
+
+gulp.task('imgs', ['imgs:dist', 'favicons:dist']);
 
 gulp.task('sass', () => {
 	return gulp.src(path.src + 'scss/**/*.scss')
@@ -73,7 +81,7 @@ gulp.task('watch', () => {
 	gulp.watch(path.src + 'scss/**/*.scss', ['sass']);
 	gulp.watch(path.src + 'js/**/*.js', ['js']);
 	gulp.watch(path.src + 'index.html', ['html']);
-	gulp.watch(path.src + 'img/**/*.*', ['imgs']);
+	gulp.watch([path.src + 'img/**/*.*', path.src + 'favicons/**/*.*'], ['imgs']);
 });
 
 gulp.task('default', ['clean', 'connect', 'watch'], () => {
