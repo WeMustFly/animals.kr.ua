@@ -1,8 +1,11 @@
 'use strict';
 
 (() => {
-	let captions = document.querySelectorAll('.caption p');
+	
+	let captions = document.querySelectorAll('.animals-section__card__caption p');
+	console.log(captions);
 	captions.forEach(el=>{
+		
 		if(el.innerText.length < 13) return;
 		let text = el.innerText.substring(0, 13) + '...';
 		el.innerText = text;
