@@ -1,0 +1,167 @@
+@import "var/common";
+body {
+	font-family: $main-font;
+	color: $brown-dark;
+	.button {
+		background: $yellow-color;
+		color: white;
+		font-size: .875em;
+		font-weight: 600;
+		outline: none;
+		@include transition;
+		&:hover {
+			background: $yellow-hover;
+		}
+	}
+	.section_heading {
+		&_h2 {
+			font-size: $h2-font;
+			span {
+				color: $yellow-color;
+			}
+		}
+		&_h3 {
+			font-size: $h3-font;
+		}
+		&_h4 {
+			font-size: $h4-font;
+		}
+	}
+	.header {
+		box-shadow: $header-shadow;
+		&_navigation {
+			&__link {
+				text-decoration: none;
+				font-weight: bold;
+				color: $brown-dark;
+				&.active {
+					color: $yellow-color;
+				}
+				@media screen and (max-width: 820px) {
+					color: $white;
+				}
+			}
+		}
+	}
+	.main-container {
+		box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.1);
+		border-radius: 10px;
+		&:after {
+			content: '';
+			background: url('/dist/img/paws-icon.svg') 95% 98% no-repeat;
+			background-size: 10%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: .1;
+			@include z-index(maincontainerAfter);
+		}
+	}
+	.main {
+		.slider-section {
+			&:after {
+				display: none;
+			}
+			&_img {
+				opacity: 1;
+				border-bottom: 4px solid $yellow-color;
+			}
+			&_heading {
+				color: $white;
+				text-shadow: 1px 1px 10px rgba(0, 0, 0, .9);
+				&:before {
+					content: "";
+					position: relative;
+					top: 2px;
+					display: inline-block;
+					height: 29px;
+					border-left: 5px solid $yellow-color;
+					margin-right: 24px;
+					box-shadow: 1px 1px 10px rgba(0, 0, 0, .9);
+					@media screen and (max-width: 820px) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.animals-section {
+		&__card {
+			border-radius: 5px;
+			box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.1);
+			&-icon {
+				display: block;
+				@include size(35px);
+				$placing: 15px;
+				position: absolute;
+				top: $placing;
+				right: $placing;
+				@include flex-c-c;
+				border-radius: 50%;
+				overflow: hidden;
+				@include z-index(main);
+				background: lighten($brown-dark, 20);
+				img {
+					width: 50%;
+				}
+			}
+			figure {
+				border-bottom: 3px solid $yellow-color;
+				img {
+					display: block;
+				}
+			}
+			&__caption {
+				a {
+					color: $brown-dark;
+					font-size: $h3-font;
+					&.tel-login {
+						background: $grey-color;
+						color: $grey-dark;
+						font-size: 11px;
+						&:hover {
+							background: darken($grey-color, 10);
+						}
+					}
+				}
+				p {
+					font-size: 18px;
+				}
+			}
+		}
+		.button {
+			background: $green-color;
+			&:hover {
+				background: $green-hover;
+			}
+		}
+	}
+	.instructions-section {
+		background: $brown-color;
+		color: $white;
+	}
+	.info-section {
+		&_link {
+			color: $brown-light;
+		}
+	}
+	.footer {
+		background: $brown-dark;
+		.left-side {
+			&_text {
+				color: $yellow-color;
+			}
+		}
+		&_social-navigation {
+			&__item {
+				a {
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
