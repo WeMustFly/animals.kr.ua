@@ -4,7 +4,7 @@
 	let captions = document.querySelectorAll('.caption p');
 	captions.forEach(el=>{
 		if(el.innerText.length < 13) return;
-		let text = el.innerText.substring(0, 40) + '...';
+		let text = el.innerText.substring(0, 13) + '...';
 		el.innerText = text;
 	});
 
