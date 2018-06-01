@@ -1,0 +1,35 @@
+.footer {
+	@media screen and (max-width: 820px) {
+		width: 100%;
+		margin: 0;
+	}
+	.left-side {
+		@include flex-sb-c;
+		padding-left: 15px;
+		&_text {}
+	}
+	.right-side {
+		@include flex-sb-c;
+	}
+	&_social-navigation {
+		ul {
+			@include flex-sb-c;
+			@media screen and (max-width: 820px) {
+				padding-left: 10px;
+			}
+		}
+		&__item {
+			list-style: none;
+			margin-right: 10px;
+			a {
+				text-decoration: none;
+				text-transform: uppercase;
+				opacity: 0.8;
+				transition: opacity .3s ease;
+				img {
+					width: 50px;
+				}
+			}
+		}
+	}
+}

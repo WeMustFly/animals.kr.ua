@@ -53,6 +53,7 @@ gulp.task('imgs', ['imgs:dist', 'favicons:dist']);
 
 gulp.task('sass', () => {
 	return gulp.src(path.src + 'scss/**/*.scss')
+		.pipe($.sourcemaps.init())
 		.pipe($.sass({
 			outputStyle: 'compressed'
 		}).on("error", $.notify.onError({
@@ -60,6 +61,7 @@ gulp.task('sass', () => {
 			title: "SASS Error: "
 		})))
 		.pipe($.autoprefixer())
+		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest(path.dist + 'css'))
 		.pipe($.connect.reload());
 })
