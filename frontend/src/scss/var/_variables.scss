@@ -1,0 +1,35 @@
+$mobile-top: 77px;
+$brown-color: #5C4C36;
+
+$brown-dark: #473D30; //$brown-text
+$brown-light: #A07133;
+$green-color: #6EAA18;
+$green-hover: #7BBF37;
+$yellow-color: #E7A126;
+$yellow-hover: #FCAF28;
+$grey-dark: #636363;
+$grey-color: #F6F6F6;
+$grey-bg: #efefef;
+$white: #fff;
+$black: #000;
+
+$header-shadow: 0 -2px 35px rgba(79, 76, 73, 0.3);
+
+$container-padding: 30px;
+
+$main-font: normal, normal, bold, 'Montserrat', sans-serif;
+$secondary-font: normal, normal, normal, 'Open Sans', sans-serif;
+$h1-font: 35px;
+$h2-font: 30px;
+$h3-font: 25px;
+$h4-font: 16px;
+$text-font: $h4-font;
+
+
+$z-index: ( 
+	maincontainerAfter: 1,
+	main: 2,
+	mobmenu: 3,
+	header: 4,
+	modal: 5
+	);
