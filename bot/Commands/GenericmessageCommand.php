@@ -81,21 +81,23 @@ class GenericmessageCommand extends SystemCommand
         if ($type === 'photo') {
             $photo = $message->getPhoto();
             $caption = trim($message->getCaption());
+            $author = $chat->getUsername();
 
-            if (!empty($caption)) {
+            if (empty($caption)) {
+                $text = "Ошибка: Вы не указали подпись для фото животного :-(";
+            } else if (empty($author)) {
+                $text = "Ошибка: Вы не указали имя пользователя :-(";
+            } else {
                 $originalPhoto = $photo[2];
                 $file_id = $originalPhoto->getFileId();
 
                 $file = Request::getFile(['file_id' => $file_id]);
                 if ($file->isOk() && Request::downloadFile($file->getResult())) {
-                    $author = $chat->getUsername(); 
                     $picture = $file->getResult()->getFilePath();
                     $text = $this->addAnimal($caption, $author, $picture);
                 } else {
                     $text = 'Ошика во время загрузки.';
                 }
-            } else {
-                $text = "Ошибка: Вы не указали подпись для фото животного :-(";
             }
 
             return Request::sendMessage([
